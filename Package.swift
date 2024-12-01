@@ -14,7 +14,6 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Network"),
-        .package(name: "Test"),
     ],
     targets: [
         .target(
@@ -23,14 +22,11 @@ let package = Package(
                 .product(name: "Network", package: "network"),
             ],
             swiftSettings: swift6),
-        .executableTarget(
-            name: "Tests/PostgreSQL",
+        .testTarget(
+            name: "Tests",
             dependencies: [
                 .target(name: "PostgreSQL"),
-                .product(name: "Test", package: "test"),
-
             ],
-            path: "Tests/PostgreSQL",
             swiftSettings: swift6),
     ]
 )
